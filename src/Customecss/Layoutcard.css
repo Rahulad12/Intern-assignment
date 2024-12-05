@@ -1,0 +1,30 @@
+.layout-container {
+  border: 2px solid red;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6f42c1, #ff7c7c);
+  text-align: center;
+  color: white;
+}
+
+.back-button {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
