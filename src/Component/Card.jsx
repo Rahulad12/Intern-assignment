@@ -7,6 +7,8 @@ const Card = ({ country, flag, office, address }) => {
       <h2>{country}</h2>
       <p>{office}</p>
       <p className="address">{address}</p>
+
+      
     </div>
   );
 };

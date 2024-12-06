@@ -1,19 +1,27 @@
 .layout-container {
-  border: 2px solid red;
+  height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 24px 28px;
+  width: 100%;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6f42c1, #ff7c7c);
+  background: linear-gradient(20deg, #6f42c1, #696969);
   text-align: center;
   color: white;
 }
 
+.layout-container-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .back-button {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  margin-bottom: 20px;
-  display: inline-block;
+  color: #e0e0e0;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 20px;
 }
 
 .title {
@@ -23,8 +31,19 @@
 }
 
 .cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  justify-items: center;
+  align-items: center;
+}
+
+.cards-top {
+  grid-column: span 3; /* Ensures the first card spans the entire width */
+}
+
+.cards-button {
   display: flex;
-  flex-wrap: wrap;
+  gap: 24px;
   justify-content: center;
-  gap: 20px;
 }

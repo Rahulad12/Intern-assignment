@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../Customecss/Userverification.css";
 
 const Userverification = () => {
@@ -22,21 +23,17 @@ const Userverification = () => {
 
   return (
     <div className="userverify-wrapper">
-      <div className="logo-section d-flex">
-        {/* <img
-          src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-          alt="logo"
-        /> */}
-        <h2 style={{ color: "#e50000" }}>Logoipsum</h2>
+      <div className="logo-section">
+        <h2 className="logo-text text-left">Logoipsum</h2>
       </div>
       <div className="userverify-container">
         <div className="content">
-          <h1 className="text-head">Verify your Email</h1>
-          <p className="text-muted">
+          <h1 className="text-head text-left">Verify your Email</h1>
+          <p className="text-muted text-left mt-2">
             Please enter the 6-digit code we just sent to s*******a@xyz.com
           </p>
           <div className="code-container">
-            {code.map((value, index) => (
+            {code.slice(0, 3).map((value, index) => (
               <input
                 type="text"
                 key={index}
@@ -46,8 +43,22 @@ const Userverification = () => {
                 maxLength="1"
               />
             ))}
+            <span className="text-4xl">-</span>
+            {code.slice(3, 6).map((value, index) => (
+              <input
+                type="text"
+                key={index + 3}
+                className="code-box"
+                value={value}
+                onChange={(e) => handleCode(e.target.value, index + 3)}
+                maxLength="1"
+              />
+            ))}
           </div>
-          <button className="verify-button">Verify</button>
+          <Link to="/afterotp">
+            <button className="verify-button">verify</button>
+          </Link>
+
           <div className="timer text-muted">
             {timelimit > 0 ? (
               <p>
@@ -61,11 +72,21 @@ const Userverification = () => {
                 onClick={() => setTimelimit(99)}
                 style={{ cursor: "pointer" }}
               >
-                Resend Code
+                Didn't receive the code?{" "}
+                <span className="text-blue-400">Resend Code</span>
               </p>
             )}
           </div>
         </div>
+      </div>
+      <div className="userverify-footer">
+        <p className="text-muted">
+          By continuing, you’re agreeing to Nobody’s
+          <span className="text-blue-400"> Terms of Service</span>,
+          <span className="text-blue-400"> Privacy Policy</span> <br />
+          and
+          <span className="text-blue-400"> Cookie Policy.</span>
+        </p>
       </div>
     </div>
   );
