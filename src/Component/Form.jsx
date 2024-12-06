@@ -1,5 +1,5 @@
 import React from "react";
-import Documentfield from "./DocumentField";
+import Documentfield from "./Documentfield";
 import "../Customecss/Form.css";
 
 const submitHandler = (e) => {

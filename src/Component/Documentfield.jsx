@@ -1,5 +1,5 @@
 import React from "react";
-import Uploadfile from "./UploadFile";
+import Uploadfile from "./Uploadfile";
 const Documentfield = () => {
 
   return (
