@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Customecss/Userverification.css";
 
+import Logo from "./Logo";
+
 const Userverification = () => {
   const [code, setCode] = useState(Array(6).fill(""));
   const [timelimit, setTimelimit] = useState(99);
@@ -24,7 +26,9 @@ const Userverification = () => {
   return (
     <div className="userverify-wrapper">
       <div className="logo-section">
-        <h2 className="logo-text text-left">Logoipsum</h2>
+        {/* <h2 className="logo-text text-left">Logoipsum</h2>
+         */}
+        <Logo />
       </div>
       <div className="userverify-container">
         <div className="content">

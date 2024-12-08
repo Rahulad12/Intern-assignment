@@ -1,51 +1,55 @@
 import React from "react";
+import "../Customecss/Progressbar.css";
 
-const Progressbar = () => {
-  const steps = [
-    "Business Type",
-    "Business Details",
-    "Authorized Representative",
-    "Business Owners",
-    "Company Directors",
-    "Support Information",
-    "Add Details",
-    "Complete Registration",
-  ];
-
-  const currentStep = 1; // Change this based on the current active step
-
+const Progressbar = ({ steps, currentsteps }) => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="w-full max-w-4xl flex justify-between">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="flex items-center flex-col w-full"
-          >
-            <div
-              className={`w-4 h-4 rounded-full ${
-                index <= currentStep ? "bg-green-500" : "bg-gray-300"
-              }`}
-            ></div>
-            {index < steps.length - 1 && (
-              <div
-                className={`w-full h-0.5 ${
-                  index < currentStep ? "bg-green-500" : "bg-gray-300"
-                }`}
-              ></div>
-            )}
-            <p
-              className={`mt-2 text-xs ${
-                index === currentStep
-                  ? "text-green-500 font-medium"
-                  : "text-gray-500"
+    <div className="bar-container">
+      {/* Progress Bar Fill */}
+      <div className="progress-bar">
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100%",
+            width: `${((currentsteps - 1) / (steps.length - 1)) * 100}%`,
+            backgroundColor: "#34c759",
+            transition: "width 0.3s ease-in-out",
+          }}
+        ></div>
+      </div>
+      {/* Steps */}
+      {steps.map((step, index) => {
+        const isCompleted = currentsteps > index + 1;
+        const isCurrent = currentsteps === index + 1;
+
+        return (
+          <div className="steps" key={index}>
+            {/* Circle */}
+            <span
+              className={`circle ${
+                isCompleted
+                  ? "bg-green-500" // Completed step
+                  : isCurrent
+                  ? "bg-white" // Current step
+                  : "bg-gray-400" // Incomplete step
               }`}
             >
-              {step}
-            </p>
+              {isCompleted ? "✓" : ""}
+            </span>
+            {/* Step Title */}
+            <div className="step-title">
+              <span
+                className={` ${
+                  isCurrent ? "text-black" : "text-gray-400"
+                } block`}
+              >
+                {step}
+              </span>
+            </div>
           </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 };
