@@ -86,10 +86,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1064.5px;
-  width: 62%;
-  height: 4px; /* Increased height for better visibility */
-  background-color: #e0e0e0; /* Light gray background */
+  max-width: 830px;
+  width: 100%;
+  height: 4px; 
+  background-color: #e0e0e0;
   position: absolute;
 }
 
@@ -100,6 +100,6 @@
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #34c759; /* Green color */
+  background-color: #34c759; 
   transition: width 0.3s ease-in-out;
 }

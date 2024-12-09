@@ -1,13 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import Documentfield from "./Documentfield";
 import "../Customecss/Form.css";
 
-const submitHandler = (e) => {
-  e.preventDefault();
-  console.log("Form Submitted");
-};
+/**
+ * Form Component
+ * Renders a form to collect business-related information from users.
+ * Includes file upload sections and navigation buttons for step transitions.
+ *
+ * Props:
+ * - `nextsteps` (function): Callback to handle the "Next" button click.
+ * - `previoussteps` (function): Callback to handle the "Previous" button click.
+ *
+ * @param {object} props - Props for the Form component.
+ * @returns {JSX.Element} The Form component.
+ */
 
 const Form = ({ nextsteps, previoussteps }) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted");
+  };
   const required = <span className="text-red-500">*</span>;
   return (
     <>
@@ -28,7 +41,7 @@ const Form = ({ nextsteps, previoussteps }) => {
               {/* First Column */}
               <div className="mb-5">
                 <label
-                  For="legalName"
+                  htmlFor="legalName"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Legal Name {required}
@@ -44,7 +57,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="companyRegNo"
+                  htmlFor="companyRegNo"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Company Registration Number {required}
@@ -60,7 +73,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="website"
+                  htmlFor="website"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Website URL {required}
@@ -76,7 +89,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomDropdown1"
+                  htmlFor="randomDropdown1"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   One Random Dropdown {required}
@@ -96,7 +109,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomDropdown2"
+                  htmlFor="randomDropdown2"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Another Random Dropdown Appears {required}
@@ -116,7 +129,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomCount"
+                  htmlFor="randomCount"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Random Count per Month {required}
@@ -132,7 +145,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="purpose"
+                  htmlFor="purpose"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Purpose of using fake form {required}
@@ -147,7 +160,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="contactEmail"
+                  htmlFor="contactEmail"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Contact Email {required}
@@ -166,7 +179,7 @@ const Form = ({ nextsteps, previoussteps }) => {
             <div className="col-span-1 md:col-span-6">
               <div className="mb-5">
                 <label
-                  For="doingbusinessas"
+                  htmlFor="doingbusinessas"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Doing business as {required}
@@ -182,7 +195,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomregnumber"
+                  htmlFor="randomregnumber"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Company Registration Number {required}
@@ -198,7 +211,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="industryname"
+                  htmlFor="industryname"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Industry Name {required}
@@ -214,7 +227,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomDropdown3"
+                  htmlFor="randomDropdown3"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Which dropdown would you like to select {required}
@@ -234,7 +247,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="randomDropdown4"
+                  htmlFor="randomDropdown4"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Account Usage Intent {required}
@@ -254,7 +267,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="totalvisit"
+                  htmlFor="totalvisit"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Expected total visit in this page {required}
@@ -270,7 +283,7 @@ const Form = ({ nextsteps, previoussteps }) => {
 
               <div className="mb-5">
                 <label
-                  For="purpose2"
+                  htmlFor="purpose2"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Ek description toh banta hai {required}

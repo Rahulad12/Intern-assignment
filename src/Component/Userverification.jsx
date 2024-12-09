@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Customecss/Userverification.css";
-
 import Logo from "./Logo";
 
+/**
+ * Userverification Component
+ * This component handles the email verification process by allowing the user to input a 6-digit code sent to their email.
+ * Features:
+ * - 6-digit OTP input
+ * - Timer countdown for resending code
+ * - Form validation (ensuring all inputs are filled before submission)
+ */
+
 const Userverification = () => {
+  // Hook to navigate to other pages
+  const navigate = useNavigate();
+
+  // State to store the code entered by the user
   const [code, setCode] = useState(Array(6).fill(""));
+  // State to handle the countdown timer
   const [timelimit, setTimelimit] = useState(99);
 
-  // Handle input for each code box
+  /**
+   * Updates the code state as the user types in each input box.
+   * @param {string} value - The value entered by the user.
+   * @param {number} index - The index of the input box being updated.
+   */
   const handleCode = (value, index) => {
     const newInput = [...code];
     newInput[index] = value.slice(-1); // Restrict to a single character
@@ -23,11 +40,39 @@ const Userverification = () => {
     }
   }, [timelimit]);
 
+  /**
+   * Handles form submission, validates if all inputs are filled.
+   * Alerts the user if the code is incomplete.
+   */
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    try {
+      // Validation: Ensure all code inputs are filled
+      if (code.some((digit) => digit === "")) {
+        alert("Please fill in all 6 code inputs.");
+        return;
+      }
+
+      // Simulate verification logic (can replace with API call)
+      alert(`Verification code submitted: ${code.join("")}`);
+
+      if (code.join("") === "123456") {
+        alert("Verification Successfull");
+        localStorage.setItem("isVerified", true);
+        navigate("/protected/afterotp");
+      } else {
+        alert("Verification Failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="userverify-wrapper">
       <div className="logo-section">
-        {/* <h2 className="logo-text text-left">Logoipsum</h2>
-         */}
+        {/* Displaying the Logo */}
         <Logo />
       </div>
       <div className="userverify-container">
@@ -36,33 +81,38 @@ const Userverification = () => {
           <p className="text-muted text-left mt-2">
             Please enter the 6-digit code we just sent to s*******a@xyz.com
           </p>
-          <div className="code-container">
-            {code.slice(0, 3).map((value, index) => (
-              <input
-                type="text"
-                key={index}
-                className="code-box"
-                value={value}
-                onChange={(e) => handleCode(e.target.value, index)}
-                maxLength="1"
-              />
-            ))}
-            <span className="text-4xl">-</span>
-            {code.slice(3, 6).map((value, index) => (
-              <input
-                type="text"
-                key={index + 3}
-                className="code-box"
-                value={value}
-                onChange={(e) => handleCode(e.target.value, index + 3)}
-                maxLength="1"
-              />
-            ))}
-          </div>
-          <Link to="/afterotp">
-            <button className="verify-button">verify</button>
-          </Link>
-
+          <form onSubmit={submitHandler}>
+            <div className="code-container">
+              {/* Render first 3 code input boxes */}
+              {code.slice(0, 3).map((value, index) => (
+                <input
+                  type="text"
+                  key={index}
+                  className="code-box"
+                  value={value}
+                  onChange={(e) => handleCode(e.target.value, index)}
+                  maxLength="1"
+                  required
+                />
+              ))}
+              <span className="text-4xl">-</span>
+              {/* Render last 3 code input boxes */}
+              {code.slice(3, 6).map((value, index) => (
+                <input
+                  type="text"
+                  key={index + 3}
+                  className="code-box"
+                  value={value}
+                  onChange={(e) => handleCode(e.target.value, index + 3)}
+                  maxLength="1"
+                  required
+                />
+              ))}
+            </div>
+            <button type="submit" className="verify-button">
+              Verify
+            </button>
+          </form>
           <div className="timer text-muted">
             {timelimit > 0 ? (
               <p>
