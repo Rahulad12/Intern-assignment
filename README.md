@@ -45,7 +45,7 @@ Ensure you have the following installed:
    ```
 3. **Run the project:**
    ```bash
-   npm start
+   npm run dev
    ```
 4. **Access the application:**
    Open your browser and navigate to [http://localhost:5173](http://localhost:5173).
