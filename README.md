@@ -56,6 +56,9 @@ Ensure you have the following installed:
 2. Use the OTP <b>`123456`</b> for verification during the test process.
 3. Navigate through the form using the **Next** and **Previous** buttons.
 
+## website url
+   ```https://rahul-codeavatar-git-main-rahulad12s-projects.vercel.app```
+
 ## License
 
 This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
