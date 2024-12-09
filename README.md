@@ -53,12 +53,8 @@ Ensure you have the following installed:
 ## Usage
 
 1. Start the application and follow the on-screen instructions to complete the multi-step form.
-2. Use the OTP `123456` for verification during the test process.
+2. Use the OTP <b>`123456`</b> for verification during the test process.
 3. Navigate through the form using the **Next** and **Previous** buttons.
-
-## What is Static OTP?
-
-**Static OTP (One-Time Password)** refers to a fixed, pre-set code used for authentication. Unlike dynamic OTPs that change with each session, static OTPs remain constant. In this project, the static OTP `123456` is used to simulate user verification. This approach is useful for testing purposes but is less secure compared to dynamic OTPs.
 
 ## License
 
