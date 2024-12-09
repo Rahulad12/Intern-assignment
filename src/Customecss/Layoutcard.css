@@ -1,5 +1,6 @@
 .layout-container {
-  height: 100vh;
+  /* border: 2px solid red; */
+  height: 100%;
   margin: 0;
   padding: 24px 28px;
   width: 100%;
@@ -31,19 +32,45 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 24px;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
 }
 
 .cards-top {
-  grid-column: span 3; /* Ensures the first card spans the entire width */
+  grid-column: span 3;
 }
 
 .cards-button {
   display: flex;
   gap: 24px;
   justify-content: center;
+}
+
+/* Responsive styles */
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Three columns for larger screens */
+  }
+}
+
+@media (max-width: 599px) {
+  .title {
+    font-size: 24px; /* Smaller font for smaller screens */
+  }
+
+  .back-button {
+    margin-left: 10px; /* Reduce margin for smaller screens */
+  }
 }

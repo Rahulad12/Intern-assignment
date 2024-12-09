@@ -56,7 +56,7 @@ const Uploadfile = () => {
               {/* Instructions Text */}
               <p class="mb-2 text-sm text-gray-500">
                 <span class="font-semibold">
-                  <u>Click to upload</u>
+                  <u><b>Click to upload</b></u>
                 </span>{" "}
                 or drag and drop
               </p>

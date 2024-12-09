@@ -27,7 +27,7 @@ const Userverification = () => {
    * @param {number} index - The index of the input box being updated.
    */
   const handleCode = (value, index) => {
-    const newInput = [...code];
+    const newInput = [...code]; // Create a copy of the current code state
     newInput[index] = value.slice(-1); // Restrict to a single character
     setCode(newInput);
   };
@@ -46,6 +46,7 @@ const Userverification = () => {
    */
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(code);
 
     try {
       // Validation: Ensure all code inputs are filled
@@ -70,66 +71,68 @@ const Userverification = () => {
   };
 
   return (
-    <div className="userverify-wrapper">
+    <div className="container">
       <div className="logo-section">
-        {/* Displaying the Logo */}
         <Logo />
+        {/* Displaying the Logo */}
       </div>
-      <div className="userverify-container">
-        <div className="content">
-          <h1 className="text-head text-left">Verify your Email</h1>
-          <p className="text-muted text-left mt-2">
-            Please enter the 6-digit code we just sent to s*******a@xyz.com
-          </p>
-          <form onSubmit={submitHandler}>
-            <div className="code-container">
-              {/* Render first 3 code input boxes */}
-              {code.slice(0, 3).map((value, index) => (
-                <input
-                  type="text"
-                  key={index}
-                  className="code-box"
-                  value={value}
-                  onChange={(e) => handleCode(e.target.value, index)}
-                  maxLength="1"
-                  required
-                />
-              ))}
-              <span className="text-4xl">-</span>
-              {/* Render last 3 code input boxes */}
-              {code.slice(3, 6).map((value, index) => (
-                <input
-                  type="text"
-                  key={index + 3}
-                  className="code-box"
-                  value={value}
-                  onChange={(e) => handleCode(e.target.value, index + 3)}
-                  maxLength="1"
-                  required
-                />
-              ))}
+      <div className="userverify-wrapper">
+        <div className="userverify-container">
+          <div className="content">
+            <h1 className="text-head text-left">Verify your Email</h1>
+            <p className="text-muted text-left mt-2">
+              Please enter the 6-digit code we just sent to s*******a@xyz.com
+            </p>
+            <form onSubmit={submitHandler}>
+              <div className="code-container">
+                {/* Render first 3 code input boxes */}
+                {code.slice(0, 3).map((value, index) => (
+                  <input
+                    type="text"
+                    key={index}
+                    className="code-box"
+                    value={value}
+                    onChange={(e) => handleCode(e.target.value, index)}
+                    maxLength="1"
+                    required
+                  />
+                ))}
+                <span className="text-4xl">-</span>
+                {/* Render last 3 code input boxes */}
+                {code.slice(3, 6).map((value, index) => (
+                  <input
+                    type="text"
+                    key={index + 3}
+                    className="code-box"
+                    value={value}
+                    onChange={(e) => handleCode(e.target.value, index + 3)}
+                    maxLength="1"
+                    required
+                  />
+                ))}
+              </div>
+              <button type="submit" className="verify-button">
+                Verify
+              </button>
+            </form>
+            <div className="timer text-muted">
+              {timelimit > 0 ? (
+                <p>
+                  Wait {Math.floor(timelimit / 60)}:
+                  {timelimit % 60 < 10 ? "0" : ""}
+                  {timelimit % 60} before requesting a new code.
+                </p>
+              ) : (
+                <p
+                  className="resend-button"
+                  onClick={() => setTimelimit(99)}
+                  style={{ cursor: "pointer" }}
+                >
+                  Didn't receive the code?{" "}
+                  <span className="text-blue-400">Resend Code</span>
+                </p>
+              )}
             </div>
-            <button type="submit" className="verify-button">
-              Verify
-            </button>
-          </form>
-          <div className="timer text-muted">
-            {timelimit > 0 ? (
-              <p>
-                Wait {Math.floor(timelimit / 60)}:
-                {timelimit % 60 < 10 ? "0" : ""}
-                {timelimit % 60} before requesting a new code.
-              </p>
-            ) : (
-              <p
-                className="resend-button"
-                onClick={() => setTimelimit(99)}
-                style={{ cursor: "pointer" }}
-              >
-                Didn't receive the code?{" "}
-                <span className="text-blue-400">Resend Code</span>
-              </p>
-            )}
           </div>
         </div>
       </div>

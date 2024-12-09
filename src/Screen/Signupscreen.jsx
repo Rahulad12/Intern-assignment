@@ -2,11 +2,10 @@
  * @file Signup.jsx
  * @description This file defines the Signup component, which structures a responsive layout
  * containing `Layoutcards` and `Userverification` components. The layout adjusts for small and medium screen sizes using CSS grid.
- * @author 
+ * @author
  */
 
 import React from "react"; // Importing React library
-import "../Customecss/Signup.css"; // Importing custom CSS for the Signup component
 import Userverification from "../Component/Userverification"; // Importing Userverification component
 import Layoutcards from "../Component/Layoutcards"; // Importing Layoutcards component
 

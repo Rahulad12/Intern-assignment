@@ -60,9 +60,6 @@ const Afterotpscreen = () => {
       <Progressbar steps={steps} currentsteps={currentStep} />
 
       <div className="afterotp-section">
-        {/* Placeholder for Section Heading */}
-        <div className="afterotp-section-heading"></div>
-
         {/* Form Component for multi-step form */}
         <div className="afterotp-section-form">
           <Form nextsteps={handelNextSteps} previoussteps={handelPrevSteps} />
