@@ -1,6 +1,6 @@
 # Multi-Step OTP Verification
 
-Multi-Step OTP Verification is a web-based application designed for user registration and business verification through a multi-step form process with OTP verification. This project aims to provide a smooth user experience with features like a dynamic progress bar, responsive design, and error handling.
+Multi-Step OTP Verification is a web-based application designed for user registration and business verification through a multi-step form process with OTP verification. This project aims to provide a smooth user experience with features like a dynamic progress bar, responsive design.
 
 ## Table of Contents
 - [Features](#features)
