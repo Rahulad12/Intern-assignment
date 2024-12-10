@@ -34,6 +34,9 @@ const Progressbar = ({ steps, currentsteps }) => {
   return (
     <div className="bar-container">
       {/* Progress Bar Fill */}
+      {
+        // i did my best but also im not able to make progress bar responsive so i will leave it as it is
+      }
       <div className="progress-bar">
         <div
           style={{

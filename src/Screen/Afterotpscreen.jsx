@@ -2,7 +2,6 @@
  * @file Afterotpscreen.jsx
  * @description This file contains the implementation of the After OTP Screen component, which is a multi-step form.
  * It displays a progress bar and manages the navigation between steps using React state.
- * @author Rahul Adhikari
  */
 
 import React from "react";

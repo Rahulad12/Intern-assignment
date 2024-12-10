@@ -38,6 +38,12 @@
 }
 
 /* Responsive styles */
+@media screen and (max-width: 1362px) {
+  .card {
+    width: 219px;
+    height: 236px;
+  }
+}
 @media screen and (max-width: 1040px) {
   .cards {
     grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
@@ -63,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 948px) {
   .cards {
     grid-template-columns: 1fr; /* Single column for small screens */
     gap: 16px;

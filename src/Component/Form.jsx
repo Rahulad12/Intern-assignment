@@ -24,7 +24,7 @@ const Form = ({ nextsteps, previoussteps }) => {
   const required = <span className="text-red-500">*</span>;
   return (
     <>
-      <div className="wrapper">
+      <div className="form-container">
         {/* header of the Content is here */}
         <div className="header">
           <h1>Tell us more about your business</h1>

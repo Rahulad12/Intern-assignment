@@ -22,6 +22,9 @@ import Card from "./Card";
  * @returns {JSX.Element} The Layoutcards component.
  */
 const Layoutcards = () => {
+  {
+    /* Render the Layoutcards component  and not able to create a elipse gradient i did but i didn't get how to place it there so i make linear gradient */
+  }
   return (
     <div className="layout-container">
       {/* Navigation Section */}
